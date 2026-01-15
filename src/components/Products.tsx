@@ -154,81 +154,88 @@ const Products = () => {
         {/* Products Grid */}
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto perspective-1000">
           {products.map((product, index) => (
-            <motion.div
-              key={product.title}
-              className="group relative bg-card/90 backdrop-blur-sm border border-border rounded-2xl p-8 overflow-hidden cursor-pointer"
-              variants={cardVariants}
-              whileHover={{ 
-                scale: 1.03, 
-                y: -8,
-                boxShadow: '0 25px 50px -12px rgba(212, 175, 55, 0.25)',
-                borderColor: 'rgba(212, 175, 55, 0.5)',
-              }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            >
-              {/* Gradient background */}
-              <motion.div 
-                className={`absolute inset-0 bg-gradient-to-br ${product.color}`}
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.4 }}
-              />
-              
-              {/* Shimmer effect on hover */}
+            <Link to="/vitrine" key={product.title}>
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full"
-                whileHover={{ translateX: '200%' }}
-                transition={{ duration: 0.8, ease: 'easeInOut' }}
-              />
-              
-              <div className="relative z-10">
-                {/* Icon */}
+                className="group relative bg-card/90 backdrop-blur-sm border border-border rounded-2xl p-8 overflow-hidden cursor-pointer h-full"
+                variants={cardVariants}
+                whileHover={{ 
+                  scale: 1.03, 
+                  y: -8,
+                  boxShadow: '0 25px 50px -12px rgba(212, 175, 55, 0.25)',
+                  borderColor: 'rgba(212, 175, 55, 0.5)',
+                }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              >
+                {/* Gradient background */}
                 <motion.div 
-                  className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors"
-                  variants={iconVariants}
-                  whileHover={{ 
-                    rotate: [0, -10, 10, -10, 0],
-                    transition: { duration: 0.5 }
-                  }}
-                >
-                  <product.icon className="w-8 h-8 text-primary" />
-                </motion.div>
-
-                {/* Title */}
-                <motion.h3 
-                  className="font-heading text-3xl text-foreground mb-2 tracking-wider"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
-                >
-                  {product.title}
-                </motion.h3>
-
-                {/* Subtitle */}
-                <motion.p 
-                  className="text-primary font-medium mb-4 italic"
+                  className={`absolute inset-0 bg-gradient-to-br ${product.color}`}
                   initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }}
-                >
-                  &quot;{product.subtitle}&quot;
-                </motion.p>
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.4 }}
+                />
+                
+                {/* Shimmer effect on hover */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full"
+                  whileHover={{ translateX: '200%' }}
+                  transition={{ duration: 0.8, ease: 'easeInOut' }}
+                />
+                
+                <div className="relative z-10">
+                  {/* Icon */}
+                  <motion.div 
+                    className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors"
+                    variants={iconVariants}
+                    whileHover={{ 
+                      rotate: [0, -10, 10, -10, 0],
+                      transition: { duration: 0.5 }
+                    }}
+                  >
+                    <product.icon className="w-8 h-8 text-primary" />
+                  </motion.div>
 
-                {/* Description */}
-                <motion.p 
-                  className="text-muted-foreground leading-relaxed"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
-                >
-                  {product.description}
-                </motion.p>
-              </div>
-            </motion.div>
+                  {/* Title */}
+                  <motion.h3 
+                    className="font-heading text-3xl text-foreground mb-2 tracking-wider"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
+                  >
+                    {product.title}
+                  </motion.h3>
+
+                  {/* Subtitle */}
+                  <motion.p 
+                    className="text-primary font-medium mb-4 italic"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }}
+                  >
+                    &quot;{product.subtitle}&quot;
+                  </motion.p>
+
+                  {/* Description */}
+                  <motion.p 
+                    className="text-muted-foreground leading-relaxed mb-4"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
+                  >
+                    {product.description}
+                  </motion.p>
+
+                  {/* Ver produtos link */}
+                  <div className="flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all">
+                    <span>Ver produtos</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </div>
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
 
