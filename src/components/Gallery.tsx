@@ -72,14 +72,14 @@ const Gallery = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <div className="relative overflow-hidden rounded-lg sm:rounded-xl aspect-video">
+          <div className="relative overflow-hidden rounded-lg sm:rounded-xl max-w-3xl mx-auto">
             <video
               src="/midia_5.mp4"
               autoPlay
               loop
               muted
               playsInline
-              className="w-full h-full object-cover"
+              className="w-full h-auto object-contain rounded-lg sm:rounded-xl"
             />
             {/* Border effect */}
             <div className="absolute inset-0 border-2 border-primary/30 rounded-lg sm:rounded-xl pointer-events-none" />
