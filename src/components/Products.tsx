@@ -1,28 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Cigarette, FlaskConical, GlassWater, Wine } from 'lucide-react';
 import productsBg from '@/assets/products-bg.jpg';
 
 const Products = () => {
-  const [parallaxY, setParallaxY] = useState(0);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (sectionRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect();
-        const scrollProgress = -rect.top * 0.25;
-        setParallaxY(scrollProgress);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   const products = [
     {
       icon: Cigarette,
@@ -126,18 +106,14 @@ const Products = () => {
   return (
     <section
       id="produtos"
-      ref={sectionRef}
       className="relative py-24 overflow-hidden"
     >
-      {/* Background Image with Parallax */}
-      <div 
-        className="absolute inset-0"
-        style={{ transform: `translateY(${parallaxY}px)` }}
-      >
+      {/* Background Image */}
+      <div className="absolute inset-0">
         <img
           src={productsBg}
           alt=""
-          className="w-full h-full object-cover scale-125"
+          className="w-full h-full object-cover"
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-background/90" />

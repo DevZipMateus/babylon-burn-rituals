@@ -4,7 +4,6 @@ import aboutBg from '@/assets/about-bg.jpg';
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [parallaxY, setParallaxY] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -20,20 +19,9 @@ const About = () => {
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-
-    const handleScroll = () => {
-      if (sectionRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect();
-        const scrollProgress = -rect.top * 0.3;
-        setParallaxY(scrollProgress);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
     
     return () => {
       observer.disconnect();
-      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -76,15 +64,12 @@ const About = () => {
       ref={sectionRef}
       className="relative py-24 overflow-hidden"
     >
-      {/* Background Image with Parallax */}
-      <div 
-        className="absolute inset-0"
-        style={{ transform: `translateY(${parallaxY}px)` }}
-      >
+      {/* Background Image */}
+      <div className="absolute inset-0">
         <img
           src={aboutBg}
           alt=""
-          className="w-full h-full object-cover scale-125"
+          className="w-full h-full object-cover"
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-background/85" />
