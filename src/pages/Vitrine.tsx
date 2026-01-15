@@ -27,9 +27,9 @@ const Vitrine = () => {
   };
 
   return (
-    <div className="h-screen w-full overflow-hidden bg-background">
-      {/* Header fixo - 80px (sólido) */}
-      <header className="fixed top-0 left-0 right-0 z-50 h-20 bg-background border-b border-border shadow-lg shadow-gold/5">
+    <div className="h-[100dvh] w-full overflow-hidden bg-background grid grid-rows-[80px_1fr]">
+      {/* Header - 80px (sólido) */}
+      <header className="sticky top-0 z-50 h-20 bg-background border-b border-border shadow-lg shadow-gold/5">
         <div className="container mx-auto px-4 h-full">
           <div className="flex items-center justify-between h-full">
             {/* Logo */}
@@ -108,11 +108,11 @@ const Vitrine = () => {
       </header>
 
       {/* Conteúdo (começa após o header) */}
-      <main className="w-full h-screen box-border pt-20">
+      <main className="w-full h-full overflow-hidden">
         <iframe
           src="https://mrking.egestor.com.br/vitrine/"
           title="Demonstração de Vitrine"
-          className="block w-full h-[calc(100vh-80px)]"
+          className="block w-full h-full"
           style={{ border: 'none' }}
         />
       </main>
