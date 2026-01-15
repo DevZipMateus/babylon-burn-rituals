@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import logo from '@/assets/logo.png';
+import heroBg from '@/assets/hero-bg.jpg';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -13,11 +14,20 @@ const Hero = () => {
       id="inicio"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary" />
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src={heroBg}
+          alt=""
+          className="w-full h-full object-cover"
+          aria-hidden="true"
+        />
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-background/70" />
+      </div>
       
       {/* Decorative elements */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 opacity-30">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/20 rounded-full blur-3xl" />
       </div>
@@ -40,12 +50,12 @@ const Hero = () => {
           <h1 className="sr-only">Babylon Burn</h1>
 
           {/* Headline */}
-          <p className="font-heading text-5xl md:text-7xl lg:text-8xl text-primary mb-6 tracking-wider">
+          <p className="font-heading text-5xl md:text-7xl lg:text-8xl text-primary mb-6 tracking-wider drop-shadow-lg">
             Onde o ritual começa.
           </p>
 
           {/* H2 - Subheadline */}
-          <h2 className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed font-body">
+          <h2 className="text-lg md:text-xl lg:text-2xl text-foreground/90 max-w-3xl mx-auto mb-12 leading-relaxed font-body drop-shadow-md">
             Tabacaria, head shop, tereré e bebidas com identidade, qualidade e atitude.
           </h2>
 
