@@ -48,24 +48,24 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="depoimentos" className="py-20 bg-card/50">
+    <section id="depoimentos" className="py-12 sm:py-16 md:py-20 bg-card/50">
       <motion.div
-        className="container mx-auto px-4"
+        className="container mx-auto px-4 sm:px-6"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
         variants={containerVariants}
       >
         {/* Section Header */}
-        <motion.div className="text-center mb-12" variants={headerVariants}>
+        <motion.div className="text-center mb-8 sm:mb-12" variants={headerVariants}>
           <motion.h2
-            className="font-heading text-4xl md:text-5xl text-primary mb-4 tracking-wider"
+            className="font-heading text-3xl sm:text-4xl md:text-5xl text-primary mb-4 tracking-wider"
             variants={headerVariants}
           >
             O que dizem nossos clientes
           </motion.h2>
           <motion.div
-            className="w-24 h-1 bg-gradient-gold mx-auto rounded-full"
+            className="w-20 sm:w-24 h-1 bg-gradient-gold mx-auto rounded-full"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
@@ -78,7 +78,7 @@ const Testimonials = () => {
           {testimonials.map((testimonial) => (
             <motion.div
               key={testimonial.id}
-              className="relative bg-card border border-border rounded-2xl p-8 md:p-10"
+              className="relative bg-card border border-border rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10"
               variants={cardVariants}
               whileHover={{
                 scale: 1.02,
@@ -120,7 +120,7 @@ const Testimonials = () => {
 
               {/* Text */}
               <motion.p
-                className="text-xl md:text-2xl text-foreground leading-relaxed mb-6 italic"
+                className="text-lg sm:text-xl md:text-2xl text-foreground leading-relaxed mb-4 sm:mb-6 italic"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

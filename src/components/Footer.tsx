@@ -5,53 +5,53 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-card border-t border-border py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8 items-center">
+    <footer className="bg-card border-t border-border py-8 sm:py-12">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 items-center">
           {/* Logo */}
-          <div className="flex justify-center md:justify-start">
+          <div className="flex justify-center sm:justify-start">
             <img
               src={logo}
               alt="Babylon Burn"
-              className="h-16 w-auto"
+              className="h-12 sm:h-16 w-auto"
             />
           </div>
 
           {/* Social Links */}
-          <div className="flex justify-center gap-4">
+          <div className="flex justify-center gap-3 sm:gap-4">
             <a
               href="https://www.instagram.com/babylonburn_/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors group"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors group"
               aria-label="Instagram"
             >
-              <Instagram className="w-5 h-5 text-primary" />
+              <Instagram className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
             </a>
             <a
               href="https://wa.me/5518992043290"
-              className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors group"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors group"
               aria-label="WhatsApp"
             >
-              <Phone className="w-5 h-5 text-primary" />
+              <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
             </a>
             <a
               href="https://share.google/OALpfXzJLo0k7AXDS"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors group"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors group"
               aria-label="Localização"
             >
-              <MapPin className="w-5 h-5 text-primary" />
+              <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
             </a>
           </div>
 
           {/* Copyright */}
-          <div className="text-center md:text-right">
-            <p className="text-muted-foreground text-sm">
+          <div className="text-center sm:text-right">
+            <p className="text-muted-foreground text-xs sm:text-sm">
               © {currentYear} Babylon Burn
             </p>
-            <p className="text-muted-foreground text-xs mt-1">
+            <p className="text-muted-foreground text-[10px] sm:text-xs mt-1">
               CNPJ: 32.890.004/0001-89
             </p>
           </div>

@@ -51,27 +51,27 @@ const Gallery = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-20 bg-background"
+      className="py-12 sm:py-16 md:py-20 bg-background"
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div
-          className={`text-center mb-12 transition-all duration-700 ${
+          className={`text-center mb-8 sm:mb-12 transition-all duration-700 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h2 className="font-heading text-4xl md:text-5xl text-primary mb-4 tracking-wider">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl text-primary mb-4 tracking-wider">
             Conheça nosso espaço
           </h2>
-          <div className="w-24 h-1 bg-gradient-gold mx-auto rounded-full" />
+          <div className="w-20 sm:w-24 h-1 bg-gradient-gold mx-auto rounded-full" />
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
           {images.map((image, index) => (
             <div
               key={image.title}
-              className={`group relative overflow-hidden rounded-xl aspect-[3/4] transition-all duration-700 ${
+              className={`group relative overflow-hidden rounded-lg sm:rounded-xl aspect-[3/4] transition-all duration-700 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
@@ -82,15 +82,15 @@ const Gallery = () => {
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              {/* Title */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                <p className="font-heading text-lg text-primary tracking-wider">
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Title - always visible on mobile, hover on desktop */}
+              <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 sm:translate-y-full sm:group-hover:translate-y-0 transition-transform duration-300">
+                <p className="font-heading text-sm sm:text-lg text-primary tracking-wider">
                   {image.title}
                 </p>
               </div>
               {/* Border effect */}
-              <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 rounded-xl transition-colors duration-300" />
+              <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 rounded-lg sm:rounded-xl transition-colors duration-300" />
             </div>
           ))}
         </div>

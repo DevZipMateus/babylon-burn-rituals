@@ -60,25 +60,25 @@ const Contact = () => {
     <section
       id="contato"
       ref={sectionRef}
-      className="py-24 bg-gradient-to-b from-background via-secondary/30 to-background"
+      className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-background via-secondary/30 to-background"
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div
-          className={`text-center mb-16 transition-all duration-700 ${
+          className={`text-center mb-10 sm:mb-16 transition-all duration-700 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-primary mb-4 tracking-wider">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-primary mb-4 tracking-wider">
             Contato
           </h2>
-          <div className="w-24 h-1 bg-gradient-gold mx-auto rounded-full mb-6" />
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <div className="w-20 sm:w-24 h-1 bg-gradient-gold mx-auto rounded-full mb-4 sm:mb-6" />
+          <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto px-2">
             Venha nos visitar ou entre em contato. Estamos prontos para te atender.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 max-w-6xl mx-auto">
           {/* Contact Info */}
           <div
             className={`space-y-6 transition-all duration-700 delay-100 ${
@@ -99,25 +99,25 @@ const Contact = () => {
             </div>
 
             {/* Contact Cards */}
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {contactInfo.map((info, index) => (
                 <a
                   key={info.title}
                   href={info.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-all duration-300"
+                  className="group bg-card border border-border rounded-lg sm:rounded-xl p-4 sm:p-6 hover:border-primary/50 transition-all duration-300"
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <info.icon className="w-5 h-5 text-primary" />
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors flex-shrink-0">
+                      <info.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                     </div>
-                    <div>
-                      <h3 className="font-heading text-lg text-foreground tracking-wide mb-1">
+                    <div className="min-w-0">
+                      <h3 className="font-heading text-base sm:text-lg text-foreground tracking-wide mb-1">
                         {info.title}
                       </h3>
-                      <p className="text-muted-foreground text-sm group-hover:text-primary transition-colors">
+                      <p className="text-muted-foreground text-xs sm:text-sm group-hover:text-primary transition-colors break-words">
                         {info.content}
                       </p>
                     </div>

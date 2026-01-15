@@ -46,14 +46,14 @@ const Hero = () => {
         <div className="absolute inset-0 bg-background/70" />
       </div>
       
-      {/* Decorative elements */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/20 rounded-full blur-3xl" />
+      {/* Decorative elements - hidden on mobile for performance */}
+      <div className="absolute inset-0 opacity-30 hidden sm:block">
+        <div className="absolute top-1/4 left-1/4 w-48 sm:w-64 md:w-96 h-48 sm:h-64 md:h-96 bg-primary/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-40 sm:w-56 md:w-80 h-40 sm:h-56 md:h-80 bg-accent/20 rounded-full blur-3xl" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center">
         <div
           className={`transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -63,34 +63,34 @@ const Hero = () => {
           <img
             src={logo}
             alt="Babylon Burn"
-            className="mx-auto h-40 md:h-56 lg:h-64 w-auto mb-8 drop-shadow-2xl"
+            className="mx-auto h-28 sm:h-40 md:h-56 lg:h-64 w-auto mb-6 sm:mb-8 drop-shadow-2xl"
           />
 
           {/* H1 - Nome da empresa */}
           <h1 className="sr-only">Babylon Burn</h1>
 
           {/* Headline */}
-          <p className="font-heading text-5xl md:text-7xl lg:text-8xl text-primary mb-6 tracking-wider drop-shadow-lg">
+          <p className="font-heading text-3xl sm:text-5xl md:text-7xl lg:text-8xl text-primary mb-4 sm:mb-6 tracking-wider drop-shadow-lg">
             Onde o ritual começa.
           </p>
 
           {/* H2 - Subheadline */}
-          <h2 className="text-lg md:text-xl lg:text-2xl text-foreground/90 max-w-3xl mx-auto mb-12 leading-relaxed font-body drop-shadow-md">
+          <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/90 max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed font-body drop-shadow-md px-2">
             Tabacaria, head shop, tereré e bebidas com identidade, qualidade e atitude.
           </h2>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center flex-wrap px-4">
             <a
               href="https://wa.me/5518992043290"
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-heading text-xl tracking-wider rounded-lg hover:bg-gold-light transition-all duration-300 glow-gold"
+              className="group inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-primary text-primary-foreground font-heading text-lg sm:text-xl tracking-wider rounded-lg hover:bg-gold-light transition-all duration-300 glow-gold w-full sm:w-auto justify-center"
             >
               Fale conosco
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </a>
             <Link
               to="/vitrine"
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary/90 to-primary text-primary-foreground font-heading text-xl tracking-wider rounded-lg hover:from-primary hover:to-gold-light transition-all duration-300 shadow-lg shadow-primary/20"
+              className="group inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary/90 to-primary text-primary-foreground font-heading text-lg sm:text-xl tracking-wider rounded-lg hover:from-primary hover:to-gold-light transition-all duration-300 shadow-lg shadow-primary/20 w-full sm:w-auto justify-center"
             >
               <ShoppingBag className="w-5 h-5" />
               Ver Vitrine
