@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import logo from '@/assets/logo.png';
 
 const Header = () => {
@@ -18,6 +19,7 @@ const Header = () => {
     { href: '#inicio', label: 'Início' },
     { href: '#sobre', label: 'Sobre' },
     { href: '#produtos', label: 'Produtos' },
+    { href: '/vitrine', label: 'Vitrine', isRoute: true },
     { href: '#contato', label: 'Contato' },
   ];
 
@@ -45,13 +47,23 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="font-heading text-lg tracking-wider text-foreground/80 hover:text-primary transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all after:duration-300"
-              >
-                {link.label}
-              </a>
+              'isRoute' in link && link.isRoute ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="font-heading text-lg tracking-wider text-foreground/80 hover:text-primary transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all after:duration-300"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="font-heading text-lg tracking-wider text-foreground/80 hover:text-primary transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all after:duration-300"
+                >
+                  {link.label}
+                </a>
+              )
             ))}
           </nav>
 
@@ -73,14 +85,25 @@ const Header = () => {
         >
           <div className="flex flex-col gap-4 pt-4 border-t border-border">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={handleLinkClick}
-                className="font-heading text-xl tracking-wider text-foreground/80 hover:text-primary transition-colors duration-300"
-              >
-                {link.label}
-              </a>
+              'isRoute' in link && link.isRoute ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={handleLinkClick}
+                  className="font-heading text-xl tracking-wider text-foreground/80 hover:text-primary transition-colors duration-300"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={handleLinkClick}
+                  className="font-heading text-xl tracking-wider text-foreground/80 hover:text-primary transition-colors duration-300"
+                >
+                  {link.label}
+                </a>
+              )
             ))}
           </div>
         </nav>
