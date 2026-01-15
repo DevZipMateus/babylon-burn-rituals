@@ -5,23 +5,12 @@ import logo from '@/assets/logo.png';
 
 const Vitrine = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [iframeHeight, setIframeHeight] = useState(0);
 
   useEffect(() => {
-    const calculateHeight = () => {
-      // Header: 80px
-      const height = window.innerHeight - 80;
-      setIframeHeight(height);
-    };
-
-    calculateHeight();
-    window.addEventListener('resize', calculateHeight);
-    
-    // Prevent scroll on body
+    // Remover scroll da página
     document.body.style.overflow = 'hidden';
-    
+
     return () => {
-      window.removeEventListener('resize', calculateHeight);
       document.body.style.overflow = '';
     };
   }, []);
@@ -38,23 +27,23 @@ const Vitrine = () => {
   };
 
   return (
-    <div className="h-screen w-full overflow-hidden bg-background flex flex-col">
-      {/* Header fixo - 80px */}
-      <header className="fixed top-0 left-0 right-0 z-50 h-20 bg-background/95 backdrop-blur-md shadow-lg shadow-gold/5">
+    <div className="h-screen w-full overflow-hidden bg-background">
+      {/* Header fixo - 80px (sólido) */}
+      <header className="fixed top-0 left-0 right-0 z-50 h-20 bg-background border-b border-border shadow-lg shadow-gold/5">
         <div className="container mx-auto px-4 h-full">
           <div className="flex items-center justify-between h-full">
             {/* Logo */}
             <Link to="/" className="flex items-center">
-              <img 
-                src={logo} 
-                alt="Babylon Burn - Tabacaria & Head Shop" 
+              <img
+                src={logo}
+                alt="Babylon Burn - Tabacaria & Head Shop"
                 className="h-14 w-auto"
               />
             </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
+              {navLinks.map((link) =>
                 link.isRoute ? (
                   <Link
                     key={link.href}
@@ -72,7 +61,7 @@ const Vitrine = () => {
                     {link.label}
                   </a>
                 )
-              ))}
+              )}
             </nav>
 
             {/* Mobile Menu Button */}
@@ -87,12 +76,12 @@ const Vitrine = () => {
 
           {/* Mobile Navigation */}
           <nav
-            className={`md:hidden overflow-hidden transition-all duration-300 bg-background/95 ${
+            className={`md:hidden overflow-hidden transition-all duration-300 bg-background ${
               isMenuOpen ? 'max-h-64 pb-4' : 'max-h-0'
             }`}
           >
             <div className="flex flex-col gap-4 pt-4 border-t border-border">
-              {navLinks.map((link) => (
+              {navLinks.map((link) =>
                 link.isRoute ? (
                   <Link
                     key={link.href}
@@ -112,21 +101,18 @@ const Vitrine = () => {
                     {link.label}
                   </a>
                 )
-              ))}
+              )}
             </div>
           </nav>
         </div>
       </header>
 
-      {/* Spacer para compensar o header fixo */}
-      <div className="h-20 flex-shrink-0" />
-
-      {/* Iframe - ocupa o restante da altura */}
-      <main className="flex-1 w-full">
+      {/* Conteúdo (começa após o header) */}
+      <main className="w-full h-screen box-border pt-20">
         <iframe
           src="https://mrking.egestor.com.br/vitrine/"
           title="Demonstração de Vitrine"
-          className="w-full h-full"
+          className="block w-full h-[calc(100vh-80px)]"
           style={{ border: 'none' }}
         />
       </main>
