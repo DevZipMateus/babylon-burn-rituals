@@ -1,4 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { ShoppingBag } from 'lucide-react';
 import logo from '@/assets/logo.png';
 import heroBg from '@/assets/hero-bg.jpg';
 
@@ -78,7 +80,7 @@ const Hero = () => {
           </h2>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
             <a
               href="https://wa.me/5518992043290"
               className="group inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-heading text-xl tracking-wider rounded-lg hover:bg-gold-light transition-all duration-300 glow-gold"
@@ -86,6 +88,14 @@ const Hero = () => {
               Fale conosco
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </a>
+            <Link
+              to="/vitrine"
+              className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary/90 to-primary text-primary-foreground font-heading text-xl tracking-wider rounded-lg hover:from-primary hover:to-gold-light transition-all duration-300 shadow-lg shadow-primary/20"
+            >
+              <ShoppingBag className="w-5 h-5" />
+              Ver Vitrine
+              <span className="group-hover:translate-x-1 transition-transform">→</span>
+            </Link>
             <a
               href="#produtos"
               className="inline-flex items-center gap-3 px-8 py-4 border-2 border-primary/60 text-primary font-heading text-xl tracking-wider rounded-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300"

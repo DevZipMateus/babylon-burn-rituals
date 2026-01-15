@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { Cigarette, FlaskConical, GlassWater, Wine } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Cigarette, FlaskConical, GlassWater, Wine, ShoppingBag, ExternalLink } from 'lucide-react';
 import productsBg from '@/assets/products-bg.jpg';
 
 const Products = () => {
@@ -231,9 +232,62 @@ const Products = () => {
           ))}
         </div>
 
+        {/* Vitrine CTA Section */}
+        <motion.div
+          className="mt-16 mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.8 }}
+        >
+          <motion.div 
+            className="relative bg-gradient-to-br from-primary/10 via-card/90 to-primary/5 backdrop-blur-sm border border-primary/40 rounded-3xl p-8 md:p-12 overflow-hidden"
+            whileHover={{ 
+              scale: 1.01,
+              boxShadow: '0 25px 50px -12px rgba(212, 175, 55, 0.25)',
+            }}
+            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+          >
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary/5 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2" />
+            
+            <div className="relative z-10 flex flex-col lg:flex-row items-center gap-8">
+              {/* Icon */}
+              <motion.div 
+                className="w-24 h-24 rounded-2xl bg-primary/20 flex items-center justify-center flex-shrink-0"
+                whileHover={{ rotate: [0, -5, 5, 0], scale: 1.05 }}
+                transition={{ duration: 0.5 }}
+              >
+                <ShoppingBag className="w-12 h-12 text-primary" />
+              </motion.div>
+              
+              {/* Content */}
+              <div className="flex-1 text-center lg:text-left">
+                <h3 className="font-heading text-3xl md:text-4xl text-primary mb-3 tracking-wider">
+                  Confira nossa Vitrine Online
+                </h3>
+                <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
+                  Explore todos os nossos produtos em detalhes. Veja preços, descrições e faça seu pedido 
+                  diretamente pela nossa vitrine digital. Praticidade e qualidade ao seu alcance!
+                </p>
+              </div>
+              
+              {/* CTA Button */}
+              <Link
+                to="/vitrine"
+                className="group inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-heading text-xl tracking-wider rounded-xl hover:bg-gold-light transition-all duration-300 shadow-lg shadow-primary/30 flex-shrink-0"
+              >
+                <span>Acessar Vitrine</span>
+                <ExternalLink className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </Link>
+            </div>
+          </motion.div>
+        </motion.div>
+
         {/* Delivery Notice */}
         <motion.div
-          className="mt-16 text-center"
+          className="text-center"
           variants={deliveryVariants}
         >
           <motion.div 
