@@ -96,12 +96,6 @@ const Hero = () => {
               Ver Vitrine
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </Link>
-            <a
-              href="#produtos"
-              className="inline-flex items-center gap-3 px-8 py-4 border-2 border-primary/60 text-primary font-heading text-xl tracking-wider rounded-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-            >
-              Conheça nossos produtos
-            </a>
           </div>
         </div>
       </div>
