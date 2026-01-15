@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Instagram } from 'lucide-react';
+import fachada from '@/assets/fachada.jpg';
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -84,6 +85,19 @@ const Contact = () => {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
+            {/* Fachada Image */}
+            <div className="relative overflow-hidden rounded-xl aspect-video">
+              <img
+                src={fachada}
+                alt="Fachada da Babylon Burn - Tabacaria e Head Shop"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+              <div className="absolute bottom-4 left-4">
+                <p className="font-heading text-2xl text-primary tracking-wider">Visite-nos</p>
+              </div>
+            </div>
+
             {/* Contact Cards */}
             <div className="grid sm:grid-cols-2 gap-4">
               {contactInfo.map((info, index) => (
