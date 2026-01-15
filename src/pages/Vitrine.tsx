@@ -38,7 +38,7 @@ const Vitrine = () => {
   };
 
   return (
-    <div className="h-screen w-full overflow-hidden bg-background">
+    <div className="h-screen w-full overflow-hidden bg-background flex flex-col">
       {/* Header fixo - 80px */}
       <header className="fixed top-0 left-0 right-0 z-50 h-20 bg-background/95 backdrop-blur-md shadow-lg shadow-gold/5">
         <div className="container mx-auto px-4 h-full">
@@ -118,14 +118,11 @@ const Vitrine = () => {
         </div>
       </header>
 
-      {/* Iframe - altura calculada dinamicamente */}
-      <main 
-        className="w-full"
-        style={{ 
-          marginTop: '80px',
-          height: `${iframeHeight}px`
-        }}
-      >
+      {/* Spacer para compensar o header fixo */}
+      <div className="h-20 flex-shrink-0" />
+
+      {/* Iframe - ocupa o restante da altura */}
+      <main className="flex-1 w-full">
         <iframe
           src="https://mrking.egestor.com.br/vitrine/"
           title="Demonstração de Vitrine"
