@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ShoppingBag } from 'lucide-react';
 import logo from '@/assets/logo.png';
 import heroBg from '@/assets/hero-bg.jpg';
+import smokeImage from '@/assets/divider-smoke.jpg';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -44,6 +45,40 @@ const Hero = () => {
         />
         {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-background/70" />
+      </div>
+
+      {/* Animated smoke overlay for hookah */}
+      <div className="absolute top-0 left-0 w-1/2 md:w-2/5 h-2/3 overflow-hidden pointer-events-none z-[1]">
+        {/* Smoke layer 1 - rising effect */}
+        <div className="absolute inset-0">
+          <img
+            src={smokeImage}
+            alt=""
+            className="w-[200%] h-full object-cover opacity-20 animate-smoke-rise-1 mix-blend-screen"
+            aria-hidden="true"
+          />
+        </div>
+        {/* Smoke layer 2 - drifting effect */}
+        <div className="absolute inset-0">
+          <img
+            src={smokeImage}
+            alt=""
+            className="w-[200%] h-full object-cover opacity-15 animate-smoke-rise-2 scale-x-[-1] mix-blend-screen"
+            aria-hidden="true"
+          />
+        </div>
+        {/* Smoke layer 3 - subtle movement */}
+        <div className="absolute inset-0">
+          <img
+            src={smokeImage}
+            alt=""
+            className="w-[200%] h-full object-cover opacity-10 animate-smoke-rise-3 mix-blend-screen"
+            aria-hidden="true"
+          />
+        </div>
+        {/* Gradient mask for natural fade */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-background" />
       </div>
       
       {/* Decorative elements - hidden on mobile for performance */}
