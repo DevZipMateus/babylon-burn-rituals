@@ -4,6 +4,7 @@ import ImageDivider from '@/components/ImageDivider';
 import About from '@/components/About';
 import Gallery from '@/components/Gallery';
 import Products from '@/components/Products';
+import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
@@ -19,6 +20,7 @@ const Index = () => {
         <Gallery />
         <ImageDivider variant="fire" />
         <Products />
+        <Testimonials />
         <ImageDivider variant="smoke" />
         <Contact />
       </main>
