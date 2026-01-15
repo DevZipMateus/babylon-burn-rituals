@@ -66,6 +66,26 @@ const Gallery = () => {
           <div className="w-20 sm:w-24 h-1 bg-gradient-gold mx-auto rounded-full" />
         </div>
 
+        {/* Video Section */}
+        <div
+          className={`mb-6 sm:mb-8 transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <div className="relative overflow-hidden rounded-lg sm:rounded-xl aspect-video">
+            <video
+              src="/midia_5.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            />
+            {/* Border effect */}
+            <div className="absolute inset-0 border-2 border-primary/30 rounded-lg sm:rounded-xl pointer-events-none" />
+          </div>
+        </div>
+
         {/* Gallery Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
           {images.map((image, index) => (
