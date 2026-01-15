@@ -51,23 +51,23 @@ const ImageDivider = ({ variant = 'smoke' }: ImageDividerProps) => {
           {/* Animated smoke overlay - masked to top portion only */}
           <div 
             className="absolute inset-0 w-[150%] h-full -left-[25%]"
-            style={{ maskImage: 'linear-gradient(to bottom, black 0%, black 40%, transparent 70%)', WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 40%, transparent 70%)' }}
+            style={{ maskImage: 'linear-gradient(to bottom, black 0%, transparent 30%)', WebkitMaskImage: 'linear-gradient(to bottom, black 0%, transparent 30%)' }}
           >
             <img
               src={image}
               alt=""
-              className="absolute w-full h-full object-cover opacity-30 animate-smoke-flow-1"
+              className="absolute w-full h-full object-cover opacity-25 animate-smoke-flow-1"
               aria-hidden="true"
             />
           </div>
           <div 
             className="absolute inset-0 w-[150%] h-full -left-[25%]"
-            style={{ maskImage: 'linear-gradient(to bottom, black 0%, black 30%, transparent 60%)', WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 30%, transparent 60%)' }}
+            style={{ maskImage: 'linear-gradient(to bottom, black 0%, transparent 25%)', WebkitMaskImage: 'linear-gradient(to bottom, black 0%, transparent 25%)' }}
           >
             <img
               src={image}
               alt=""
-              className="absolute w-full h-full object-cover opacity-25 animate-smoke-flow-2 scale-x-[-1]"
+              className="absolute w-full h-full object-cover opacity-20 animate-smoke-flow-2 scale-x-[-1]"
               aria-hidden="true"
             />
           </div>
