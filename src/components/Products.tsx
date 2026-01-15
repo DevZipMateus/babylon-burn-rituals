@@ -121,29 +121,29 @@ const Products = () => {
       </div>
 
       <motion.div 
-        className="relative z-10 container mx-auto px-4"
+        className="relative z-10 container mx-auto px-4 sm:px-6"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
         variants={containerVariants}
       >
         {/* Section Header */}
-        <motion.div className="text-center mb-16" variants={headerVariants}>
+        <motion.div className="text-center mb-10 sm:mb-16" variants={headerVariants}>
           <motion.h2 
-            className="font-heading text-4xl md:text-5xl lg:text-6xl text-primary mb-4 tracking-wider"
+            className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-primary mb-4 tracking-wider"
             variants={headerVariants}
           >
             Nossos produtos
           </motion.h2>
           <motion.div 
-            className="w-24 h-1 bg-gradient-gold mx-auto rounded-full mb-6"
+            className="w-20 sm:w-24 h-1 bg-gradient-gold mx-auto rounded-full mb-4 sm:mb-6"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.5 }}
           />
           <motion.p 
-            className="text-muted-foreground text-lg max-w-2xl mx-auto"
+            className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto px-2"
             variants={headerVariants}
           >
             Diversidade em tabacaria, head shop, bebidas e tereré. 
@@ -152,11 +152,11 @@ const Products = () => {
         </motion.div>
 
         {/* Products Grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto perspective-1000">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-5xl mx-auto perspective-1000">
           {products.map((product, index) => (
             <Link to="/vitrine" key={product.title}>
               <motion.div
-                className="group relative bg-card/90 backdrop-blur-sm border border-border rounded-2xl p-8 overflow-hidden cursor-pointer h-full"
+                className="group relative bg-card/90 backdrop-blur-sm border border-border rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 overflow-hidden cursor-pointer h-full"
                 variants={cardVariants}
                 whileHover={{ 
                   scale: 1.03, 
@@ -185,19 +185,19 @@ const Products = () => {
                 <div className="relative z-10">
                   {/* Icon */}
                   <motion.div 
-                    className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors"
+                    className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-primary/10 flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-primary/20 transition-colors"
                     variants={iconVariants}
                     whileHover={{ 
                       rotate: [0, -10, 10, -10, 0],
                       transition: { duration: 0.5 }
                     }}
                   >
-                    <product.icon className="w-8 h-8 text-primary" />
+                    <product.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-primary" />
                   </motion.div>
 
                   {/* Title */}
                   <motion.h3 
-                    className="font-heading text-3xl text-foreground mb-2 tracking-wider"
+                    className="font-heading text-xl sm:text-2xl md:text-3xl text-foreground mb-2 tracking-wider"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -208,7 +208,7 @@ const Products = () => {
 
                   {/* Subtitle */}
                   <motion.p 
-                    className="text-primary font-medium mb-4 italic"
+                    className="text-primary font-medium mb-3 sm:mb-4 italic text-sm sm:text-base"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
@@ -219,7 +219,7 @@ const Products = () => {
 
                   {/* Description */}
                   <motion.p 
-                    className="text-muted-foreground leading-relaxed mb-4"
+                    className="text-muted-foreground leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base"
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -229,7 +229,7 @@ const Products = () => {
                   </motion.p>
 
                   {/* Ver produtos link */}
-                  <div className="flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all">
+                  <div className="flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all text-sm sm:text-base">
                     <span>Ver produtos</span>
                     <ExternalLink className="w-4 h-4" />
                   </div>
@@ -241,40 +241,40 @@ const Products = () => {
 
         {/* Vitrine CTA Section */}
         <motion.div
-          className="mt-16 mb-12"
+          className="mt-10 sm:mt-16 mb-8 sm:mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.8 }}
         >
           <motion.div 
-            className="relative bg-gradient-to-br from-primary/10 via-card/90 to-primary/5 backdrop-blur-sm border border-primary/40 rounded-3xl p-8 md:p-12 overflow-hidden"
+            className="relative bg-gradient-to-br from-primary/10 via-card/90 to-primary/5 backdrop-blur-sm border border-primary/40 rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 overflow-hidden"
             whileHover={{ 
               scale: 1.01,
               boxShadow: '0 25px 50px -12px rgba(212, 175, 55, 0.25)',
             }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
           >
-            {/* Decorative elements */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary/5 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2" />
+            {/* Decorative elements - hidden on mobile */}
+            <div className="absolute top-0 right-0 w-32 sm:w-48 md:w-64 h-32 sm:h-48 md:h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 hidden sm:block" />
+            <div className="absolute bottom-0 left-0 w-24 sm:w-36 md:w-48 h-24 sm:h-36 md:h-48 bg-primary/5 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2 hidden sm:block" />
             
-            <div className="relative z-10 flex flex-col lg:flex-row items-center gap-8">
+            <div className="relative z-10 flex flex-col lg:flex-row items-center gap-4 sm:gap-6 md:gap-8">
               {/* Icon */}
               <motion.div 
-                className="w-24 h-24 rounded-2xl bg-primary/20 flex items-center justify-center flex-shrink-0"
+                className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-xl sm:rounded-2xl bg-primary/20 flex items-center justify-center flex-shrink-0"
                 whileHover={{ rotate: [0, -5, 5, 0], scale: 1.05 }}
                 transition={{ duration: 0.5 }}
               >
-                <ShoppingBag className="w-12 h-12 text-primary" />
+                <ShoppingBag className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-primary" />
               </motion.div>
               
               {/* Content */}
               <div className="flex-1 text-center lg:text-left">
-                <h3 className="font-heading text-3xl md:text-4xl text-primary mb-3 tracking-wider">
+                <h3 className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl text-primary mb-2 sm:mb-3 tracking-wider">
                   Confira nossa Vitrine Online
                 </h3>
-                <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
+                <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl">
                   Explore todos os nossos produtos em detalhes. Veja preços, descrições e faça seu pedido 
                   diretamente pela nossa vitrine digital. Praticidade e qualidade ao seu alcance!
                 </p>
@@ -283,10 +283,10 @@ const Products = () => {
               {/* CTA Button */}
               <Link
                 to="/vitrine"
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-heading text-xl tracking-wider rounded-xl hover:bg-gold-light transition-all duration-300 shadow-lg shadow-primary/30 flex-shrink-0"
+                className="group inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-6 md:px-8 py-3 sm:py-4 bg-primary text-primary-foreground font-heading text-base sm:text-lg md:text-xl tracking-wider rounded-lg sm:rounded-xl hover:bg-gold-light transition-all duration-300 shadow-lg shadow-primary/30 flex-shrink-0 w-full sm:w-auto justify-center"
               >
                 <span>Acessar Vitrine</span>
-                <ExternalLink className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </Link>
             </div>
           </motion.div>
