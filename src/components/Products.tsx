@@ -4,6 +4,7 @@ import productsBg from '@/assets/products-bg.jpg';
 
 const Products = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [parallaxY, setParallaxY] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -20,7 +21,20 @@ const Products = () => {
       observer.observe(sectionRef.current);
     }
 
-    return () => observer.disconnect();
+    const handleScroll = () => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const scrollProgress = -rect.top * 0.25;
+        setParallaxY(scrollProgress);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const products = [
@@ -60,12 +74,15 @@ const Products = () => {
       ref={sectionRef}
       className="relative py-24 overflow-hidden"
     >
-      {/* Background Image */}
-      <div className="absolute inset-0">
+      {/* Background Image with Parallax */}
+      <div 
+        className="absolute inset-0"
+        style={{ transform: `translateY(${parallaxY}px)` }}
+      >
         <img
           src={productsBg}
           alt=""
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover scale-125"
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-background/90" />

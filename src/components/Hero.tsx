@@ -1,25 +1,43 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import logo from '@/assets/logo.png';
 import heroBg from '@/assets/hero-bg.jpg';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setIsVisible(true);
+
+    const handleScroll = () => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        if (rect.bottom > 0) {
+          setScrollY(window.scrollY);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <section
       id="inicio"
+      ref={sectionRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
-      {/* Background Image */}
-      <div className="absolute inset-0">
+      {/* Background Image with Parallax */}
+      <div 
+        className="absolute inset-0"
+        style={{ transform: `translateY(${scrollY * 0.4}px)` }}
+      >
         <img
           src={heroBg}
           alt=""
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover scale-110"
           aria-hidden="true"
         />
         {/* Overlay for better text readability */}
