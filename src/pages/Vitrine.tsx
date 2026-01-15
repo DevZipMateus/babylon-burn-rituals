@@ -9,8 +9,8 @@ const Vitrine = () => {
 
   useEffect(() => {
     const calculateHeight = () => {
-      // Header: 80px, Badge inferior: 63px
-      const height = window.innerHeight - 80 - 63;
+      // Header: 80px
+      const height = window.innerHeight - 80;
       setIframeHeight(height);
     };
 
@@ -133,13 +133,6 @@ const Vitrine = () => {
           style={{ border: 'none' }}
         />
       </main>
-
-      {/* Badge inferior - 63px */}
-      <div 
-        id="montesite-footer-badge"
-        className="fixed bottom-0 left-0 right-0 z-40 bg-background border-t border-border"
-        style={{ height: '63px' }}
-      />
     </div>
   );
 };
