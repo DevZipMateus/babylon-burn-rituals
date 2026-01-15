@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Cigarette, FlaskConical, GlassWater, Wine } from 'lucide-react';
+import productsBg from '@/assets/products-bg.jpg';
 
 const Products = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -57,9 +58,20 @@ const Products = () => {
     <section
       id="produtos"
       ref={sectionRef}
-      className="py-24 bg-background"
+      className="relative py-24 overflow-hidden"
     >
-      <div className="container mx-auto px-4">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src={productsBg}
+          alt=""
+          className="w-full h-full object-cover"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-background/90" />
+      </div>
+
+      <div className="relative z-10 container mx-auto px-4">
         {/* Section Header */}
         <div
           className={`text-center mb-16 transition-all duration-700 ${
@@ -81,7 +93,7 @@ const Products = () => {
           {products.map((product, index) => (
             <div
               key={product.title}
-              className={`group relative bg-card border border-border rounded-2xl p-8 overflow-hidden hover:border-primary/50 transition-all duration-500 ${
+              className={`group relative bg-card/90 backdrop-blur-sm border border-border rounded-2xl p-8 overflow-hidden hover:border-primary/50 transition-all duration-500 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
@@ -102,7 +114,7 @@ const Products = () => {
 
                 {/* Subtitle */}
                 <p className="text-primary font-medium mb-4 italic">
-                  "{product.subtitle}"
+                  &quot;{product.subtitle}&quot;
                 </p>
 
                 {/* Description */}
@@ -120,7 +132,7 @@ const Products = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <div className="inline-flex items-center gap-3 px-6 py-3 bg-card border border-primary/30 rounded-full">
+          <div className="inline-flex items-center gap-3 px-6 py-3 bg-card/90 backdrop-blur-sm border border-primary/30 rounded-full">
             <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
             <span className="text-foreground">
               Fazemos <span className="text-primary font-semibold">entregas</span> na região

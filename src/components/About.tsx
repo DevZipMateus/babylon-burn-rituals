@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Flame, Eye, Heart, Users, Award, Leaf } from 'lucide-react';
+import aboutBg from '@/assets/about-bg.jpg';
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -59,9 +60,20 @@ const About = () => {
     <section
       id="sobre"
       ref={sectionRef}
-      className="py-24 bg-gradient-to-b from-background via-secondary/30 to-background"
+      className="relative py-24 overflow-hidden"
     >
-      <div className="container mx-auto px-4">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src={aboutBg}
+          alt=""
+          className="w-full h-full object-cover"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-background/85" />
+      </div>
+
+      <div className="relative z-10 container mx-auto px-4">
         {/* Section Header */}
         <div
           className={`text-center mb-16 transition-all duration-700 ${
@@ -78,7 +90,7 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-8 mb-20">
           {/* Mission */}
           <div
-            className={`bg-card border border-border rounded-2xl p-8 transition-all duration-700 delay-100 ${
+            className={`bg-card/90 backdrop-blur-sm border border-border rounded-2xl p-8 transition-all duration-700 delay-100 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
@@ -97,7 +109,7 @@ const About = () => {
 
           {/* Vision */}
           <div
-            className={`bg-card border border-border rounded-2xl p-8 transition-all duration-700 delay-200 ${
+            className={`bg-card/90 backdrop-blur-sm border border-border rounded-2xl p-8 transition-all duration-700 delay-200 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
@@ -117,7 +129,7 @@ const About = () => {
 
         {/* History */}
         <div
-          className={`bg-card border border-border rounded-2xl p-8 md:p-12 mb-20 transition-all duration-700 delay-300 ${
+          className={`bg-card/90 backdrop-blur-sm border border-border rounded-2xl p-8 md:p-12 mb-20 transition-all duration-700 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
@@ -152,7 +164,7 @@ const About = () => {
           {values.map((value, index) => (
             <div
               key={value.title}
-              className={`group bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-all duration-500 ${
+              className={`group bg-card/90 backdrop-blur-sm border border-border rounded-xl p-6 hover:border-primary/50 transition-all duration-500 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${400 + index * 100}ms` }}
