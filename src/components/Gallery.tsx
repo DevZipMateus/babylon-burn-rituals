@@ -72,7 +72,7 @@ const Gallery = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <div className="relative overflow-hidden rounded-lg sm:rounded-xl max-w-md sm:max-w-lg mx-auto">
+          <div className="relative overflow-hidden rounded-lg sm:rounded-xl max-w-xs sm:max-w-sm mx-auto">
             <video
               src="/midia_5.mp4"
               autoPlay
